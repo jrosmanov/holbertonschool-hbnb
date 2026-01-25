@@ -66,3 +66,29 @@ User "1" --> "0..*" Place : owns
 User "1" --> "0..*" Review : writes
 Place "1" --> "0..*" Review : receives
 Place "*" --> "*" Amenity : has
+
+sequenceDiagram
+participant User
+participant API
+participant Service
+participant DB
+
+User->>API: Register account
+API->>Service: validate data
+Service->>DB: save user
+DB-->>Service: success
+Service-->>API: response
+API-->>User: account created
+
+sequenceDiagram
+participant User
+participant API
+participant Service
+participant DB
+
+User->>API: Create place
+API->>Service: process request
+Service->>DB: save place
+DB-->>Service: confirmation
+Service-->>API: response
+API-->>User: place created
