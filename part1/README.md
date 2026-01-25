@@ -5,7 +5,7 @@ This file contains all diagramms for HBnb Project!
 
 ## 1️⃣ High-Level Package Diagram
 
-mermaid
+```mermaid
 classDiagram
     direction TB
     class PresentationLayer {
@@ -34,7 +34,7 @@ classDiagram
     BusinessLogicLayer --> PersistenceLayer : Database Operations
 
 ## 2️⃣ Detailed Class Diagram
-mermaid
+```mermaid
 classDiagram
     class User {
         +UUID id
@@ -79,7 +79,7 @@ classDiagram
     Place "0..*" -- "0..*" Amenity : provides
 
 ## 3️⃣ Sequence Diagram(User Registration)
-mermaid
+```mermaid
 sequenceDiagram
     participant User
     participant API
@@ -93,7 +93,7 @@ sequenceDiagram
     API-->>User: registration success
 
 ## 3️⃣ Sequence Diagram(Place Creation)
-mermaid
+```mermaid
 sequenceDiagram
 participant User
 participant API
@@ -108,7 +108,7 @@ BusinessLogic-->>API: return success
 API-->>User: place created
 
 ## 3️⃣ Sequence Diagram(Review Submission)
-mermaid
+```mermaid
 sequenceDiagram
 participant User
 participant API
@@ -123,7 +123,7 @@ BusinessLogic-->>API: return success
 API-->>User: review submitted
 
 ## 3️⃣ Sequence Diagram(Fetching a List of Places)
-mermaid
+```mermaid
 sequenceDiagram
 participant User
 participant API
