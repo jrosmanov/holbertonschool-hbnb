@@ -3,11 +3,9 @@
 This file contains all diagrams for HBnb Project!
 ---
 
-## 1️⃣ High-Level Package Diagram
+## 1️.TASK High-Level Package Diagram
 
-This diagram shows the **three-layer architecture** of the HBnB application.  
-It includes the Presentation Layer (services & API), the Business Logic Layer (models), and the Persistence Layer (database interactions).  
-The layers communicate via the **Facade Pattern**
+THIS IS THREE-LAYER ARCHITECTURE
 
 ```mermaid
 classDiagram
@@ -37,10 +35,9 @@ classDiagram
     PresentationLayer --> BusinessLogicLayer : Facade Pattern
     BusinessLogicLayer --> PersistenceLayer : Database Operations
 ```
-## 2️⃣ Detailed Class Diagram
+## 2️.TASK Detailed Class Diagram
 
-This diagram represents the entities in the Business Logic Layer.
-It shows User, Place, Review, and Amenity classes with their key attributes, methods, and relationships:
+EVERYTHING IN THIS DIAGRAM
 
 - Users own Places
 - Users write Reviews for Places
@@ -89,9 +86,9 @@ classDiagram
     User "1" -- "0..*" Review : writes
     Place "0..*" -- "0..*" Amenity : provides
 ```
-## 3️⃣ Sequence Diagram(User Registration)
+## 3️.TASK Sequence Diagram(User Registration)
 
-This diagram shows the flow of registering a new user:
+REGISTER OF NEW USER
 
 - User sends registration data to API
 - API validates the data via Business Logic Layer
@@ -113,7 +110,7 @@ sequenceDiagram
 ```
 ## 3️.TASK Sequence Diagram(Place Creation)
 
-This diagram illustrates creating a new place listing:
+NEW PLACE
 
 - User submits place details
 - API passes it to Business Logic for validation
@@ -133,9 +130,9 @@ Database-->>BusinessLogic: confirmation
 BusinessLogic-->>API: return success
 API-->>User: place created
 ```
-## 3️.TASK Sequence Diagram(Review Submission)
+## 3️.TASK (Sequence Diagram(Review Submission))
 
-This diagram shows how a user submits a review:
+SUBMITED REVIEWS
 
 - User submits review for a place
 - API forwards it to Business Logic for validation
@@ -155,9 +152,9 @@ Database-->>BusinessLogic: confirmation
 BusinessLogic-->>API: return success
 API-->>User: review submitted
 ```
-## 3️⃣ Sequence Diagram(Fetching a List of Places)
+## 3️.TASK (Sequence Diagram(Fetching a List of Places))
 
-This diagram shows how the application fetches a list of places:
+LIST OF PLACES
 
 - User requests a list with filters
 - API forwards the request to Business Logic
