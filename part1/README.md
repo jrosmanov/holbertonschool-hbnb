@@ -93,6 +93,11 @@ Service-->>API: response
 API-->>User: account created
 
 sequenceDiagram
+participant User
+participant API
+participant Service
+participant DB
+
 User->>API: Create place
 API->>Service: process request
 Service->>DB: save place
@@ -101,6 +106,11 @@ Service-->>API: response
 API-->>User: place created
 
 sequenceDiagram
+participant User
+participant API
+participant Service
+participant DB
+
 User->>API: Submit review
 API->>Service: validate review
 Service->>DB: save review
@@ -109,6 +119,11 @@ Service-->>API: response
 API-->>User: review added
 
 sequenceDiagram
+participant User
+participant API
+participant Service
+participant DB
+
 User->>API: Get places
 API->>Service: fetch data
 Service->>DB: query places
