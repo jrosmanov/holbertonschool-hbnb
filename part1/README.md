@@ -1,9 +1,13 @@
 # HBnB Project Diagrams
 
-This file contains all diagramms for HBnb Project!
+This file contains all diagrams for HBnb Project!
 ---
 
-1️ High-Level Package Diagram
+## 1️⃣ High-Level Package Diagram
+
+This diagram shows the **three-layer architecture** of the HBnB application.  
+It includes the Presentation Layer (services & API), the Business Logic Layer (models), and the Persistence Layer (database interactions).  
+The layers communicate via the **Facade Pattern**
 
 ```mermaid
 classDiagram
@@ -32,8 +36,15 @@ classDiagram
     }
     PresentationLayer --> BusinessLogicLayer : Facade Pattern
     BusinessLogicLayer --> PersistenceLayer : Database Operations
+```
+## 2️⃣ Detailed Class Diagram
 
-2️ Detailed Class Diagram
+This diagram represents the entities in the Business Logic Layer.
+It shows User, Place, Review, and Amenity classes with their key attributes, methods, and relationships:
+
+- Users own Places
+- Users write Reviews for Places
+- Places provide multiple Amenities
 ```mermaid
 classDiagram
     class User {
@@ -77,8 +88,16 @@ classDiagram
     Place "1" -- "0..*" Review : has
     User "1" -- "0..*" Review : writes
     Place "0..*" -- "0..*" Amenity : provides
+```
+## 3️⃣ Sequence Diagram(User Registration)
 
-3️ Sequence Diagram(User Registration)
+This diagram shows the flow of registering a new user:
+
+- User sends registration data to API
+- API validates the data via Business Logic Layer
+- Business Logic saves the user in the Database
+- Confirmation is sent back through API to the User
+
 ```mermaid
 sequenceDiagram
     participant User
@@ -91,8 +110,15 @@ sequenceDiagram
     Database-->>BusinessLogic: confirmation
     BusinessLogic-->>API: return success
     API-->>User: registration success
+```
+## 3️.TASK Sequence Diagram(Place Creation)
 
-3️ Sequence Diagram(Place Creation)
+This diagram illustrates creating a new place listing:
+
+- User submits place details
+- API passes it to Business Logic for validation
+- Business Logic saves it to Database
+- Confirmation is returned to the User
 ```mermaid
 sequenceDiagram
 participant User
@@ -106,8 +132,15 @@ BusinessLogic->>Database: save_place()
 Database-->>BusinessLogic: confirmation
 BusinessLogic-->>API: return success
 API-->>User: place created
+```
+## 3️.TASK Sequence Diagram(Review Submission)
 
-3️ Sequence Diagram(Review Submission)
+This diagram shows how a user submits a review:
+
+- User submits review for a place
+- API forwards it to Business Logic for validation
+- Business Logic saves the review in the Database
+- Confirmation is returned to User
 ```mermaid
 sequenceDiagram
 participant User
@@ -121,8 +154,15 @@ BusinessLogic->>Database: save_review()
 Database-->>BusinessLogic: confirmation
 BusinessLogic-->>API: return success
 API-->>User: review submitted
+```
+## 3️⃣ Sequence Diagram(Fetching a List of Places)
 
-3️ Sequence Diagram(Fetching a List of Places)
+This diagram shows how the application fetches a list of places:
+
+- User requests a list with filters
+- API forwards the request to Business Logic
+- Business Logic fetches data from Database
+- List of places is returned to User via API
 ```mermaid
 sequenceDiagram
 participant User
@@ -136,3 +176,4 @@ BusinessLogic->>Database: fetch_places()
 Database-->>BusinessLogic: places list
 BusinessLogic-->>API: return places
 API-->>User: display places
+```
