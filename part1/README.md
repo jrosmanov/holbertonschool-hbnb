@@ -1,9 +1,9 @@
 # HBnB Project Diagrams
 
-diagramms for HBnb
+This file contains all diagramms for HBnb Project!
 ---
 
-## 1.TASK (High-Level Package Diagram)
+## 1️⃣ High-Level Package Diagram
 
 mermaid
 classDiagram
@@ -33,7 +33,7 @@ classDiagram
     PresentationLayer --> BusinessLogicLayer : Facade Pattern
     BusinessLogicLayer --> PersistenceLayer : Database Operations
 
-## 2.TASK (Detailed Class Diagram)
+## 2️⃣ Detailed Class Diagram
 mermaid
 classDiagram
     class User {
@@ -78,7 +78,7 @@ classDiagram
     User "1" -- "0..*" Review : writes
     Place "0..*" -- "0..*" Amenity : provides
 
-## 3.TASK (Diagram Sequence(User Registration))
+## 3️⃣ Sequence Diagram(User Registration)
 mermaid
 sequenceDiagram
     participant User
@@ -92,7 +92,7 @@ sequenceDiagram
     BusinessLogic-->>API: return success
     API-->>User: registration success
 
-## 3.TASK (Diagram Sequence(Place Creation))
+## 3️⃣ Sequence Diagram(Place Creation)
 mermaid
 sequenceDiagram
 participant User
@@ -107,7 +107,7 @@ Database-->>BusinessLogic: confirmation
 BusinessLogic-->>API: return success
 API-->>User: place created
 
-## 3.TASK (Diagram Sequence(Review Submission))
+## 3️⃣ Sequence Diagram(Review Submission)
 mermaid
 sequenceDiagram
 participant User
@@ -122,7 +122,7 @@ Database-->>BusinessLogic: confirmation
 BusinessLogic-->>API: return success
 API-->>User: review submitted
 
-## 3.TASK (Diagram Sequence(Fetching a List of Places))
+## 3️⃣ Sequence Diagram(Fetching a List of Places)
 mermaid
 sequenceDiagram
 participant User
